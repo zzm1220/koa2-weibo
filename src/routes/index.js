@@ -16,4 +16,22 @@ router.get('/json', async (ctx, next) => {
   }
 })
 
+router.get('/profile/:userName', async (ctx, next) => {
+	const { userName } = ctx.params;
+	console.log(`userName: ** ${userName}`);
+	ctx.body = {
+		content: `this is ${userName} profile page`,
+		userName
+	}
+})
+
+router.get('/loadmore/:userName/:pageIndex', async (ctx, next) => {
+	const { userName, pageIndex} = ctx.params;
+	ctx.body = {
+		title: 'this is loadmore ',
+		userName,
+		pageIndex
+	}
+})
+
 module.exports = router
